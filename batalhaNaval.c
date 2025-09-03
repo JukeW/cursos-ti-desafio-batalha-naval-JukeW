@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+# define TAMANHO 3
+
 int main(){
     char linha[10]= {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
 
@@ -11,17 +13,28 @@ int main(){
         }
     }
 
-    // 3-1. Barcos Horizontais
-    for (int i = 0; i < 3; i++){
+    // 2-1. Barcos Horizontais
+    for (int i = 0; i < TAMANHO; i++){
         tabuleiro[3][i+2] = 3; // Barco de tamanho 3 na linha 3, colunas 2, 3 e 4
     }
 
-    // 3-2. Barcos Verticais
-    for (int j = 0; j < 3; j++){
+    // 2-2. Barcos Verticais
+    for (int j = 0; j < TAMANHO; j++){
         tabuleiro[j+2][7] = 3; // Barco de tamanho 3 na coluna 7, linhas 2, 3 e 4
     }
 
-    // 4. Exibindo Tabuleiro
+    // 2-3. Barco Diagonal Subindo
+    for (int i = 0; i < TAMANHO; i++){
+        tabuleiro[9-i][1+i] = 3;
+    }
+    
+    // 2-3. Barco Diagonal Descendo
+    for (int i = 0; i < TAMANHO; i++){
+        tabuleiro[7+i][5+i] = 3;
+    }
+    
+
+    // 3. Exibindo Tabuleiro
     printf(" TABULEIRO BATALHA NAVAL \n");
     printf("  ");
     for(int i = 0; i < 10; i++){ // Cabeçalho colunas (A a J)
@@ -39,3 +52,4 @@ int main(){
 
     return 0;
 }
+
