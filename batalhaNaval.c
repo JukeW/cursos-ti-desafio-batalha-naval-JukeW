@@ -13,6 +13,7 @@ int main(){
         }
     }
 
+    /*
     // 2-1. Barcos Horizontais
     for (int i = 0; i < TAMANHO; i++){
         tabuleiro[3][i+2] = 3; // Barco de tamanho 3 na linha 3, colunas 2, 3 e 4
@@ -32,8 +33,35 @@ int main(){
     for (int i = 0; i < TAMANHO; i++){
         tabuleiro[7+i][5+i] = 3;
     }
-    
+    */
 
+    // 2-1. Desenhando uma figura de cone
+    for (int i = 0; i < TAMANHO; i++){ // Linhas
+        for (int j = 0; j < (TAMANHO*2)-1; j++){ // Colunas
+            if (j >= (TAMANHO-1)-i && j <= (TAMANHO-1)+i){
+                tabuleiro[i+2][j+2] = 3; // Desenha o cone começando na linha 2, coluna 2
+            }
+        }
+    }
+
+    // 2-2. Desenhando uma figura de cruz
+    for (int i = 0; i < TAMANHO*2-1; i++){
+        for (int j = 0; j < TAMANHO*2-1; j++){
+            if (i == TAMANHO-1 || j == TAMANHO -1){
+                tabuleiro[i+5][j+5] = 5; // Desenha o + começando na linha 5, coluna 5
+            }
+        }
+    }
+
+    // 2-3. Desenhando uma figura de octaedro
+    for (int i = 0; i < TAMANHO; i++){
+        for (int j = 0; j < TAMANHO; j++){
+            if (i == 1 || j == 1){
+                tabuleiro[i+5][j] = 7; // Desenha o octaedro começando na linha 5, coluna 0
+            }
+        }
+    }
+   
     // 3. Exibindo Tabuleiro
     printf(" TABULEIRO BATALHA NAVAL \n");
     printf("  ");
